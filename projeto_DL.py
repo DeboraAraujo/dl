@@ -111,7 +111,7 @@ model3.add(Dense(1, activation='sigmoid',weights=model2.layers[-1].get_weights()
 
 model3.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 #print(model3.summary())
-model3.fit(X_train, y_train, epochs=10, batch_size=64)
+model3.fit(X_train, y_train, epochs=3, batch_size=64)
 
 
 # In[ ]:

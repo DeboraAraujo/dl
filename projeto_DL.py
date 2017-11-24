@@ -70,7 +70,7 @@ model.add(Embedding(top_words, embedding_vecor_length, input_length=max_review_l
 model.add(Dropout(0.2))
 model.add(LSTM(50))
 model.add(Dropout(0.2))
-model.add(Dense(1, activation='softamx'))
+model.add(Dense(1, activation='softmax'))
 model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 #print(model.summary())
 model.fit(x_train1, y_train1, epochs=1, batch_size=64)

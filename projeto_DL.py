@@ -64,7 +64,7 @@ x_test1, y_test1, x_test2, y_test2 =  dividir_classe(X_test, y_test)
 
 # In[6]:
 
-optimize = "nag"
+optimize = "momentum"
 num_neu = 50
 func_activation = "sigmoid"
 

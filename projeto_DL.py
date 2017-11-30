@@ -64,7 +64,7 @@ x_test1, y_test1, x_test2, y_test2 =  dividir_classe(X_test, y_test)
 
 # In[6]:
 
-optimize = "momentum"
+optimize = "rmsprop"
 num_neu = 50
 func_activation = "sigmoid"
 
@@ -72,9 +72,9 @@ func_activation = "sigmoid"
 embedding_vecor_length = 32
 model = Sequential()
 model.add(Embedding(top_words, embedding_vecor_length, input_length=max_review_length))
-model.add(Dropout(0.2))
+model.add(Dropout(0.1))
 model.add(LSTM(num_neu))
-model.add(Dropout(0.2))
+model.add(Dropout(0.1))
 model.add(Dense(1, activation=func_activation))
 model.compile(loss='binary_crossentropy', optimizer=optimize, metrics=['accuracy'])
 #print(model.summary())
@@ -88,9 +88,9 @@ model.fit(x_train1, y_train1, epochs=1, batch_size=64)
 #embedding_vecor_length = 32
 model2 = Sequential()
 model2.add(Embedding(top_words, embedding_vecor_length, input_length=max_review_length))
-model2.add(Dropout(0.2))
+model2.add(Dropout(0.1))
 model2.add(LSTM(num_neu))
-model2.add(Dropout(0.2))
+model2.add(Dropout(0.1))
 model2.add(Dense(1, activation=func_activation))
 model2.compile(loss='binary_crossentropy', optimizer=optimize, metrics=['accuracy'])
 #print(model2.summary())
@@ -104,14 +104,14 @@ model2.fit(x_train2, y_train2, epochs=1, batch_size=64)
 #embedding_vecor_length = 32
 model3 = Sequential()
 model3.add(Embedding(top_words, embedding_vecor_length, input_length=max_review_length))
-model3.add(Dropout(0.2))
+model3.add(Dropout(0.1))
 
 model3.add(LSTM(num_neu, return_sequences=True))
-model3.add(Dropout(0.2))
+model3.add(Dropout(0.1))
 model3.add(Dense(1, activation=func_activation,weights=model.layers[-1].get_weights()))
 
 model3.add(LSTM(num_neu))
-model3.add(Dropout(0.2))
+model3.add(Dropout(0.1))
 model3.add(Dense(1, activation=func_activation,weights=model2.layers[-1].get_weights()))
 
 model3.compile(loss='binary_crossentropy', optimizer=optimize, metrics=['accuracy'])

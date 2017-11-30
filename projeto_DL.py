@@ -76,7 +76,7 @@ model.add(Dropout(0.2))
 model.add(LSTM(num_neu))
 model.add(Dropout(0.2))
 model.add(Dense(1, activation=func_activation))
-model.compile(loss='binary_crossentropy', optimizer=func_activation, metrics=['accuracy'])
+model.compile(loss='binary_crossentropy', optimizer=optimize, metrics=['accuracy'])
 #print(model.summary())
 model.fit(x_train1, y_train1, epochs=1, batch_size=64)
 

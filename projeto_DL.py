@@ -43,9 +43,7 @@ def dividir_classe(x, y):
             x2_features.append(x[i])
             y2_label.append(y[i])
 
-    return numpy.asarray(x1_features), numpy.asarray(y1_label), numpy.asarray(x2_features), numpy.asarray(y2_label)
-
-'''            
+            
     for i in range(0,len(x2_features)):
         if (randrange(0, 9))/10 > 0.7:
             x1_features.append(x2_features[i])
@@ -55,9 +53,9 @@ def dividir_classe(x, y):
         if (randrange(0, 9))/10 > 0.7:
             x2_features.append(x1_features[i])
             y2_label.append(y1_label[i])
- '''   
+   
     
-
+    return numpy.asarray(x1_features), numpy.asarray(y1_label), numpy.asarray(x2_features), numpy.asarray(y2_label)
 
 
 

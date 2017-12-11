@@ -1,5 +1,4 @@
 
-
 # coding: utf-8
 
 # In[1]:
@@ -44,7 +43,7 @@ def dividir_classe(x, y):
         else:
             x2_features.append(x[i])
             y2_label.append(y[i])
-            
+'''            
     for i in range(0,len(x2_features)):
         if (randrange(0, 9))/10 > 0.7:
             x1_features.append(x2_features[i])
@@ -54,7 +53,7 @@ def dividir_classe(x, y):
         if (randrange(0, 9))/10 > 0.7:
             x2_features.append(x1_features[i])
             y2_label.append(y1_label[i])
-    
+ '''   
     return numpy.asarray(x1_features), numpy.asarray(y1_label), numpy.asarray(x2_features), numpy.asarray(y2_label)
 
 
@@ -79,7 +78,7 @@ x_test1, y_test1, x_test2, y_test2 =  dividir_classe(X_test, y_test)
 # In[6]:
 
 optimize = "rmsprop"
-num_neu = 50
+num_neu = 100
 func_activation = "sigmoid"
 
 # create the MODEL 1
@@ -136,7 +135,7 @@ model3.add(Dense(1, activation=func_activation, weights=model2.layers[-1].get_we
 
 model3.compile(loss='binary_crossentropy', optimizer=optimize, metrics=['accuracy'])
 #print(model3.summary())
-model3.fit(X_train, y_train, epochs=3, batch_size=64)
+model3.fit(X_train, y_train, epochs=10, batch_size=64)
 
 
 # In[ ]:

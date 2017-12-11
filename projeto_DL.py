@@ -42,6 +42,17 @@ def dividir_classe(x, y):
         else:
             x2_features.append(x[i])
             y2_label.append(y[i])
+            
+    for i in range(0,len(x2_features)):
+        if (randrange(0, 9))/10 > 0.7:
+            x1_features.append(x2_features[i])
+            y1_label.append(y2_label[i])
+    
+    for i in range(0,len(x1_features)):
+        if (randrange(0, 9))/10 > 0.7:
+            x2_features.append(x1_features[i])
+            y2_label.append(y1_label[i])
+    
     return numpy.asarray(x1_features), numpy.asarray(y1_label), numpy.asarray(x2_features), numpy.asarray(y2_label)
 
 
@@ -109,15 +120,17 @@ model3.add(Dropout(0.2))
 
 model3.add(LSTM(num_neu, return_sequences=True))
 model3.add(Dropout(0.2))
-keras.initializers.RandomUniform(minval=-1, maxval=0.05, seed=None)
-model3.add(Dense(1, activation=func_activation, kernel_initializer='random_uniform'))
+#keras.initializers.RandomUniform(minval=-1, maxval=0.05, seed=None)
+model3.add(Dense(1, activation=func_activation, weights=model.layers[-1].get_weights()))
 #weights=model.layers[-1].get_weights()
+#kernel_initializer='random_uniform'
 
 model3.add(LSTM(num_neu))
 model3.add(Dropout(0.2))
-keras.initializers.RandomUniform(minval=0, maxval=0.222, seed=None)
-model3.add(Dense(1, activation=func_activation, kernel_initializer='random_uniform'))
+#keras.initializers.RandomUniform(minval=0, maxval=0.222, seed=None)
+model3.add(Dense(1, activation=func_activation, weights=model2.layers[-1].get_weights()))
 #weights=model2.layers[-1].get_weights()
+#kernel_initializer='random_uniform'
 
 model3.compile(loss='binary_crossentropy', optimizer=optimize, metrics=['accuracy'])
 #print(model3.summary())

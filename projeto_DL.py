@@ -5,6 +5,7 @@
 
 
 import numpy
+import keras
 from keras.datasets import imdb
 from keras.models import Sequential
 from keras.layers import Dense, Merge

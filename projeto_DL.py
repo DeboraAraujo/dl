@@ -1,4 +1,5 @@
 
+
 # coding: utf-8
 
 # In[1]:
@@ -13,6 +14,7 @@ from keras.layers import LSTM
 from keras.layers.embeddings import Embedding
 from keras.preprocessing import sequence
 from keras.layers import Dropout
+from random import randrange
 
 # fix random seed for reproducibility
 numpy.random.seed(7)

@@ -21,7 +21,6 @@ numpy.random.seed(7)
 
 # In[2]:
 
-
 # load the dataset but only keep the top n words, zero the rest
 top_words = 5000
 (X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=top_words)
@@ -43,6 +42,9 @@ def dividir_classe(x, y):
         else:
             x2_features.append(x[i])
             y2_label.append(y[i])
+
+    return numpy.asarray(x1_features), numpy.asarray(y1_label), numpy.asarray(x2_features), numpy.asarray(y2_label)
+
 '''            
     for i in range(0,len(x2_features)):
         if (randrange(0, 9))/10 > 0.7:
@@ -54,7 +56,7 @@ def dividir_classe(x, y):
             x2_features.append(x1_features[i])
             y2_label.append(y1_label[i])
  '''   
-    return numpy.asarray(x1_features), numpy.asarray(y1_label), numpy.asarray(x2_features), numpy.asarray(y2_label)
+    
 
 
 
